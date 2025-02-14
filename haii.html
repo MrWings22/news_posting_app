@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Haii</h1>
+    <p>Ini adalah halaman haii</p>
+    <a href="index.php">Kembali</a>
+    <script>
+        // Get the current date and time
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        document.write(h + ":" + m + ":" + s);
+    </script>
+    <script>
+        // Check if the user is logged in
+        var username = "admin";
+        var password = "123";
+        var enteredUsername = prompt("Enter your username:");
+        var enteredPassword = prompt("Enter your password:");
+        
+        if (enteredUsername === username && enteredPassword === password) {
+            alert("You are logged in");
+        } else {
+            alert("You are not logged in");
+        }
+        
+        // Countdown timer
+        var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+            // Change the background color every 5 seconds
+            var colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+            // Change the font color every 10 seconds
+            var fontColors = ["white", "black", "gray", "brown", "pink", "cyan"];
+            var randomFontColor = fontColors[Math.floor(Math.random() * fontColors.length)];
+            document.body.style.color = randomFontColor;
+            // Change the text size every 15 seconds
+            var textSizes = ["10px", "12px", "14px", "16px", "18px", "20px"];
+            var randomTextSize = textSizes[Math.floor(Math.random() * textSizes.length)];
+            document.body.style.fontSize = randomTextSize;
+
+        }, 1000);
+    </script>
+</body>
+</html>
